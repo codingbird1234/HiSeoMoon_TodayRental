@@ -20,6 +20,11 @@ function TopBar({ isLogin, setIsLogin }) {
     navigate('/mypage');
   };
   const goToRentalPage = () => {
+    if (!isLogin) {
+      alert('로그인 후 이용해주세요');
+      navigate('/login');
+      return;
+    }
     navigate('/rental');
   };
   return (
@@ -43,8 +48,8 @@ export default TopBar;
 
 const TopBarBox = styled.div`
   width: 100%;
-  height: 100px;
-  border: 1px solid black;
+  height: 130px;
+  //border: 1px solid black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -52,15 +57,14 @@ const TopBarBox = styled.div`
 `;
 
 const ServiceName = styled.div`
-  font-size: 30px;
+  font-size: 50px;
   font-weight: bold;
-  font-family: 'Hanna';
-  margin-left: 20px;
+  margin-left: 60px;
   cursor: pointer;
 `;
 
 const Container = styled.div`
-  border: 1px solid black;
+  //border: 1px solid black;
   margin-right: 50px;
 `;
 
@@ -88,7 +92,7 @@ const MenuButton = styled.button`
   cursor: pointer;
   &:hover {
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
-    transition: 0.5s;
+    transition: 0.2s;
   }
 `;
 
@@ -106,6 +110,6 @@ const LoginButton = styled.button`
   &:hover {
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
     background-color: #08246c;
-    transition: 0.5s;
+    transition: 0.2s;
   }
 `;

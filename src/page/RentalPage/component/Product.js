@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-function Product({ product, setProductId }) {
+function Product({ product }) {
   const navigate = useNavigate();
   const goToProductDetailPage = () => {
-    navigate('/rental/100');
+    navigate(`/rental/${product.id}`);
   };
   return (
     <ProductBox onClick={goToProductDetailPage}>

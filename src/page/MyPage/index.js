@@ -4,6 +4,7 @@ import My from './component/My';
 function MyPage() {
   return (
     <MyPageBox>
+      <Title>마이페이지</Title>
       <My></My>
     </MyPageBox>
   );
@@ -16,6 +17,18 @@ const MyPageBox = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //justify-content: center;
   align-items: center;
+`;
+
+const Title = styled.h2`
+  font-size: 40px;
+  margin-top: 60px;
+`;
+
+const Seperator = styled.div`
+  width: 80vw;
+  height: 0px;
+  border: 1px solid black;
+  margin: 0px 10px;
 `;

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import Product from './Product';
 
-function ProductList({ setProductId }) {
+function ProductList() {
   const products = [
     {
       id: 100,
@@ -43,9 +43,7 @@ function ProductList({ setProductId }) {
   return (
     <ProductListBox>
       {products.map((product) => {
-        return (
-          <Product product={product} setProductId={setProductId}></Product>
-        );
+        return <Product product={product}></Product>;
       })}
     </ProductListBox>
   );

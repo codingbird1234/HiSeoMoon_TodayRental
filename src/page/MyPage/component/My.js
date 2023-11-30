@@ -38,7 +38,7 @@ const MyBox = styled.div`
   height: 1000px;
   //border: 1px solid black;
   border-radius: 100px;
-  margin: 100px 0px;
+  margin: 35px 0px;
   display: flex;
   flex-direction: column;
   //justify-content: center;
@@ -49,7 +49,7 @@ const MyBox = styled.div`
 const UserInfoBox = styled.div`
   width: 900px;
   height: 200px;
-  border: 1px solid black;
+  //border: 1px solid black;
   border-radius: 100px;
   margin: 50px 0px;
   display: flex;

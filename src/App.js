@@ -12,7 +12,6 @@ import ProductDetailPage from './page/ProductDetailPage';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-  const [productId, setProductId] = useState('100');
   const productData = [
     {
       id: 100,
@@ -47,12 +46,7 @@ function App() {
             <Route path="/mypage" element={<MyPage></MyPage>} />
             <Route
               path="/rental"
-              element={
-                <RentalPage
-                  isLogin={isLogin}
-                  setProductId={setProductId}
-                ></RentalPage>
-              }
+              element={<RentalPage isLogin={isLogin}></RentalPage>}
             />
             <Route
               path="/rental/:product"

@@ -8,5 +8,5 @@ export default Body;
 
 const BodyBox = styled.div`
   width: 100%;
-  height: 100%;
+  height: 1500px;
 `;
