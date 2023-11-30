@@ -1,9 +1,10 @@
 import { styled } from 'styled-components';
 import Product from './Product';
 
-function ProductList() {
+function ProductList({ setProductId }) {
   const products = [
     {
+      id: 100,
       productName: '만능 공구상자',
       rentalTermStandard: '하루',
       remainProduct: 3,
@@ -12,6 +13,7 @@ function ProductList() {
       productImage: '/images/tools.png',
     },
     {
+      id: 101,
       productName: '피크닉 세트',
       rentalTermStandard: '하루',
       remainProduct: 3,
@@ -20,6 +22,7 @@ function ProductList() {
       productImage: '/images/picnic_set.png',
     },
     {
+      id: 102,
       productName: '빔 프로젝터 세트',
       rentalTermStandard: '하루',
       remainProduct: 3,
@@ -28,6 +31,7 @@ function ProductList() {
       productImage: '/images/beam_projector.png',
     },
     {
+      id: 100,
       productName: '만능 공구상자',
       rentalTermStandard: '하루',
       remainProduct: 3,
@@ -39,7 +43,9 @@ function ProductList() {
   return (
     <ProductListBox>
       {products.map((product) => {
-        return <Product product={product}></Product>;
+        return (
+          <Product product={product} setProductId={setProductId}></Product>
+        );
       })}
     </ProductListBox>
   );

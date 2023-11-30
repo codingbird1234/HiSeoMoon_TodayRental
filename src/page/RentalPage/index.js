@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 import Rental from './component/Rental';
 
-function RentalPage() {
+function RentalPage({setProductId}) {
   return (
     <RentalPageBox>
-      <Rental></Rental>
+      <Rental setProductId={setProductId}></Rental>
     </RentalPageBox>
   );
 }

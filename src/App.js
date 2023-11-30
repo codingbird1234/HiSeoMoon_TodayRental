@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import TopBar from './component/TopBar';
@@ -8,9 +8,25 @@ import BasicPage from './page/BasicPage';
 import SignUpPage from './page/SignUpPage';
 import MyPage from './page/MyPage';
 import RentalPage from './page/RentalPage';
+import ProductDetailPage from './page/ProductDetailPage';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  const [productId, setProductId] = useState('100');
+  const productData = [
+    {
+      id: 100,
+      name: '만능 공구세트',
+    },
+    {
+      id: 101,
+      name: '피크닉 세트',
+    },
+    {
+      id: 102,
+      name: '빔프로젝터 세트',
+    },
+  ];
   useEffect(() => {
     if (localStorage.getItem('todayRentalIsLogin') !== null) {
       setIsLogin(true);
@@ -31,8 +47,17 @@ function App() {
             <Route path="/mypage" element={<MyPage></MyPage>} />
             <Route
               path="/rental"
-              element={<RentalPage isLogin={isLogin}></RentalPage>}
+              element={
+                <RentalPage
+                  isLogin={isLogin}
+                  setProductId={setProductId}
+                ></RentalPage>
+              }
             />
+            <Route
+              path="/rental/:product"
+              element={<ProductDetailPage></ProductDetailPage>}
+            ></Route>
           </Routes>
         </Body>
       </Window>

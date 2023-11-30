@@ -1,8 +1,13 @@
 import { styled } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
-function Product({ product }) {
+function Product({ product, setProductId }) {
+  const navigate = useNavigate();
+  const goToProductDetailPage = () => {
+    navigate('/rental/100');
+  };
   return (
-    <ProductBox>
+    <ProductBox onClick={goToProductDetailPage}>
       <ProductImage src={product.productImage}></ProductImage>
       <ProductInfo>
         <Container>
@@ -31,6 +36,7 @@ const ProductBox = styled.div`
   //box-shadow: 0 0px 10px rgba(0, 0, 0, 1);
   padding: 10px;
   //margin: 10px;
+  cursor: pointer;
 `;
 
 const ProductImage = styled.img`

@@ -24,7 +24,7 @@ function TopBar({ isLogin, setIsLogin }) {
   };
   return (
     <TopBarBox>
-      <ServiceName onClick={goToHomePage}>서비스 이름</ServiceName>
+      <ServiceName onClick={goToHomePage}>오늘대여</ServiceName>
       <Container>
         <MenuBox>
           <MenuButton>메뉴 1</MenuButton>
@@ -54,6 +54,7 @@ const TopBarBox = styled.div`
 const ServiceName = styled.div`
   font-size: 30px;
   font-weight: bold;
+  font-family: 'Hanna';
   margin-left: 20px;
   cursor: pointer;
 `;

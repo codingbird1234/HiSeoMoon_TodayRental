@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 import ProductList from './ProductList';
 
-function Rental() {
+function Rental({ setProductId }) {
   return (
     <RentalBox>
       <Title>대여하기</Title>
       <Seperator></Seperator>
-      <ProductList></ProductList>
+      <ProductList setProductId={setProductId}></ProductList>
     </RentalBox>
   );
 }
