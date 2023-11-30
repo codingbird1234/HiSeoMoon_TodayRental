@@ -19,13 +19,16 @@ function TopBar({ isLogin, setIsLogin }) {
   const goToMyPage = () => {
     navigate('/mypage');
   };
+  const goToRentalPage = () => {
+    navigate('/rental');
+  };
   return (
     <TopBarBox>
       <ServiceName onClick={goToHomePage}>서비스 이름</ServiceName>
       <Container>
         <MenuBox>
           <MenuButton>메뉴 1</MenuButton>
-          <MenuButton>대여하기</MenuButton>
+          <MenuButton onClick={goToRentalPage}>대여하기</MenuButton>
           {isLogin && <MenuButton onClick={goToMyPage}>마이페이지</MenuButton>}
           <LoginButton onClick={goToLoginPage}>
             {isLogin ? 'Logout' : 'Login'}

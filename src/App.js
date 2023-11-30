@@ -7,6 +7,7 @@ import LoginPage from './page/LoginPage';
 import BasicPage from './page/BasicPage';
 import SignUpPage from './page/SignUpPage';
 import MyPage from './page/MyPage';
+import RentalPage from './page/RentalPage';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -28,6 +29,10 @@ function App() {
             />
             <Route path="/signup" element={<SignUpPage></SignUpPage>} />
             <Route path="/mypage" element={<MyPage></MyPage>} />
+            <Route
+              path="/rental"
+              element={<RentalPage isLogin={isLogin}></RentalPage>}
+            />
           </Routes>
         </Body>
       </Window>

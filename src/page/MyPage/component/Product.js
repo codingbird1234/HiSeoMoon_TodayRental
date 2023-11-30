@@ -73,10 +73,3 @@ const Address = styled.h5`
   font-weight: 500;
   margin: 0px;
 `;
-
-const MiniSeperator = styled.div`
-  width: 800px;
-  height: 1px;
-  background-color: #999;
-  margin: 10px 0px;
-`;
