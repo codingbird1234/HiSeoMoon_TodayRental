@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({ setIsLogin }) {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [isPwVisible, setIsPwVisible] = useState(false);
@@ -12,6 +12,31 @@ function Login() {
   const navigate = useNavigate();
   const goToSignUpPage = () => {
     navigate('/signup');
+  };
+  const login = () => {
+    let alertString = '';
+    if (id === '') {
+      alert('아이디를 입력해주세요');
+      return;
+    } else if (pw === '') {
+      alert('비밀번호를 입력해주세요');
+      return;
+    }
+
+    if (id !== localStorage.getItem('todayRentalId')) {
+      alertString += '아이디가 일치하지 않습니다\n';
+    }
+    if (pw !== localStorage.getItem('todayRentalPw')) {
+      alertString += '비밀번호가 일치하지 않습니다\n';
+    }
+    if (alertString !== '') {
+      alert(alertString);
+    } else {
+      setIsLogin(true);
+      localStorage.setItem('todayRentalIsLogin', true);
+      alert('로그인 성공');
+      navigate('/');
+    }
   };
   return (
     <LoginBox>
@@ -39,7 +64,7 @@ function Login() {
         </ToggleButton>
         <SignInButton onClick={goToSignUpPage}>sign in</SignInButton>
       </MiddleBox>
-      <SubmitButton>로그인</SubmitButton>
+      <SubmitButton onClick={login}>로그인</SubmitButton>
     </LoginBox>
   );
 }

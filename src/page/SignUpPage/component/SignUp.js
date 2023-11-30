@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const [isAgree, setIsAgree] = useState(false);
+  const [nickname, setNickname] = useState('');
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [pwCheck, setPwCheck] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [emailName, setEmailName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const navigate = useNavigate();
@@ -23,7 +25,9 @@ function SignUp() {
     setIsAgree(!isAgree);
   };
   const signUp = () => {
-    if (id === '') {
+    if (nickname === '') {
+      alert('닉네임을 입력해주세요.');
+    } else if (id === '') {
       alert('아이디를 입력해주세요.');
     } else if (pw === '') {
       alert('비밀번호를 입력해주세요.');
@@ -33,9 +37,13 @@ function SignUp() {
       alert('이메일을 입력해주세요.');
     } else if (!isAgree) {
       alert('개인정보 제공에 동의해주세요.');
+    } else if (phoneNumber === '') {
+      alert('휴대폰 번호를 입력해주세요.');
     } else {
       localStorage.setItem('todayRentalId', id);
       localStorage.setItem('todayRentalPw', pw);
+      localStorage.setItem('todayRentalNickname', nickname);
+      localStorage.setItem('todayRentalPhoneNumber', phoneNumber);
       alert('회원가입이 완료되었습니다.');
       navigate('/login');
     }
@@ -44,6 +52,14 @@ function SignUp() {
     <SignUpBox>
       <Title>회원가입</Title>
       <Container>
+        <InfoInputBox>
+          <InfoName>닉네임</InfoName>
+          <InfoInput
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+            placeholder="닉네임을 입력하세요"
+          ></InfoInput>
+        </InfoInputBox>
         <InfoInputBox>
           <InfoName>아이디</InfoName>
           <InfoInput
@@ -73,6 +89,14 @@ function SignUp() {
           <ToggleButton onClick={togglePwCheckVisible}>
             {isPwCheckVisible ? '비밀번호 숨기기' : '비밀번호 보기'}
           </ToggleButton>
+        </InfoInputBox>
+        <InfoInputBox>
+          <InfoName>휴대폰 번호</InfoName>
+          <InfoInput
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            placeholder="전화번호를 입력하세요"
+          ></InfoInput>
         </InfoInputBox>
         <InfoInputBox>
           <InfoName>이메일 주소</InfoName>

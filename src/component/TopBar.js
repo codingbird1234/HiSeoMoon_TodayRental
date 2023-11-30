@@ -1,23 +1,37 @@
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-function TopBar() {
+function TopBar({ isLogin, setIsLogin }) {
   const navigate = useNavigate();
   const goToLoginPage = () => {
-    navigate('/login');
+    if (!isLogin) {
+      navigate('/login');
+    } else {
+      setIsLogin(false);
+      localStorage.removeItem('todayRentalIsLogin');
+      alert('로그아웃 되었습니다');
+      navigate('/');
+    }
   };
   const goToHomePage = () => {
     navigate('/');
   };
+  const goToMyPage = () => {
+    navigate('/mypage');
+  };
   return (
     <TopBarBox>
       <ServiceName onClick={goToHomePage}>서비스 이름</ServiceName>
-      <MenuBox>
-        <MenuButton>메뉴 1</MenuButton>
-        <MenuButton>메뉴 2</MenuButton>
-        <MenuButton>메뉴 3</MenuButton>
-        <LoginButton onClick={goToLoginPage}>login</LoginButton>
-      </MenuBox>
+      <Container>
+        <MenuBox>
+          <MenuButton>메뉴 1</MenuButton>
+          <MenuButton>대여하기</MenuButton>
+          {isLogin && <MenuButton onClick={goToMyPage}>마이페이지</MenuButton>}
+          <LoginButton onClick={goToLoginPage}>
+            {isLogin ? 'Logout' : 'Login'}
+          </LoginButton>
+        </MenuBox>
+      </Container>
     </TopBarBox>
   );
 }
@@ -38,11 +52,21 @@ const ServiceName = styled.div`
   font-size: 30px;
   font-weight: bold;
   margin-left: 20px;
+  cursor: pointer;
+`;
+
+const Container = styled.div`
+  border: 1px solid black;
+  margin-right: 50px;
+`;
+
+const UserText = styled.h5`
+  font-size: 20px;
+  font-weight: 500;
 `;
 
 const MenuBox = styled.div`
   //border: 1px solid black;
-  margin-right: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;

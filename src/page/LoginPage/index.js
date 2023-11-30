@@ -1,11 +1,10 @@
 import { styled } from 'styled-components';
 import Login from './component/Login';
-import { useNavigate } from 'react-router-dom';
 
-function LoginPage() {
+function LoginPage({ setIsLogin }) {
   return (
     <LoginPageBox>
-      <Login></Login>
+      <Login setIsLogin={setIsLogin}></Login>
     </LoginPageBox>
   );
 }

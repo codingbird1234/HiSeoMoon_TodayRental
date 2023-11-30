@@ -1,18 +1,24 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import TopBar from './component/TopBar';
 import Body from './component/Body';
 import LoginPage from './page/LoginPage';
 import BasicPage from './page/BasicPage';
 import SignUpPage from './page/SignUpPage';
+import MyPage from './page/MyPage';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem('todayRentalIsLogin') !== null) {
+      setIsLogin(true);
+    }
+  }, []);
   return (
     <BrowserRouter>
       <Window>
-        <TopBar></TopBar>
+        <TopBar isLogin={isLogin} setIsLogin={setIsLogin}></TopBar>
         <Body>
           <Routes>
             <Route path="/" element={<BasicPage></BasicPage>} />
@@ -21,6 +27,7 @@ function App() {
               element={<LoginPage setIsLogin={setIsLogin} />}
             />
             <Route path="/signup" element={<SignUpPage></SignUpPage>} />
+            <Route path="/mypage" element={<MyPage></MyPage>} />
           </Routes>
         </Body>
       </Window>
