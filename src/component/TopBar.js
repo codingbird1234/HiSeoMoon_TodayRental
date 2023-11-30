@@ -1,16 +1,22 @@
 import { styled } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 function TopBar() {
+  const navigate = useNavigate();
+  const goToLoginPage = () => {
+    navigate('/login');
+  };
+  const goToHomePage = () => {
+    navigate('/');
+  };
   return (
     <TopBarBox>
-      <ServiceName>서비스 이름</ServiceName>
+      <ServiceName onClick={goToHomePage}>서비스 이름</ServiceName>
       <MenuBox>
         <MenuButton>메뉴 1</MenuButton>
         <MenuButton>메뉴 2</MenuButton>
         <MenuButton>메뉴 3</MenuButton>
-        <MenuButton style={{ color: '#ffffff', backgroundColor: '#0033B5' }}>
-          login
-        </MenuButton>
+        <LoginButton onClick={goToLoginPage}>login</LoginButton>
       </MenuBox>
     </TopBarBox>
   );
@@ -53,9 +59,25 @@ const MenuButton = styled.button`
   margin: 10px;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-    background-color: #aec4fb;
-    color: white;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+  }
+`;
+
+const LoginButton = styled.button`
+  color: white;
+  background-color: #0033b5;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+    background-color: #08246c;
     transition: 0.5s;
   }
 `;
