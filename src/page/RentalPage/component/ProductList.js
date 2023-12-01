@@ -1,45 +1,9 @@
 import { styled } from 'styled-components';
 import Product from './Product';
+import productList from '../../../assets/products.json';
 
 function ProductList() {
-  const products = [
-    {
-      id: 100,
-      productName: '만능 공구상자',
-      rentalTermStandard: '하루',
-      remainProduct: 3,
-      address: '대구광역시 북구 대학로 80',
-      rentalCost: 9900,
-      productImage: '/images/tools.png',
-    },
-    {
-      id: 101,
-      productName: '피크닉 세트',
-      rentalTermStandard: '하루',
-      remainProduct: 3,
-      address: '대구광역시 북구 대학로 80',
-      rentalCost: 12000,
-      productImage: '/images/picnic_set.png',
-    },
-    {
-      id: 102,
-      productName: '빔 프로젝터 세트',
-      rentalTermStandard: '하루',
-      remainProduct: 3,
-      address: '대구광역시 북구 대학로 80',
-      rentalCost: 9900,
-      productImage: '/images/beam_projector.png',
-    },
-    {
-      id: 100,
-      productName: '만능 공구상자',
-      rentalTermStandard: '하루',
-      remainProduct: 3,
-      address: '대구광역시 북구 대학로 80',
-      rentalCost: 10000,
-      productImage: '/images/tools.png',
-    },
-  ];
+  const products = Object.values(productList);
   return (
     <ProductListBox>
       {products.map((product) => {

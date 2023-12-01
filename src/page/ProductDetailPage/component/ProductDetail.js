@@ -38,12 +38,12 @@ export default ProductDetail;
 
 const ProductDetailBox = styled.div`
   //width: 100%;
-  //height: 100%;
+  height: 700px;
   border: 1px solid #999;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
   margin: 40px 0px;
@@ -51,8 +51,8 @@ const ProductDetailBox = styled.div`
 `;
 
 const Container = styled.div`
-  width: 1000px;
-  height: 100%;
+  width: 100%;
+  height: 400px;
   //border: 1px solid black;
   display: flex;
   flex-direction: row;
@@ -64,7 +64,6 @@ const ProductImage = styled.img`
   width: 400px;
   height: 400px;
   //border: 1px solid black;
-  margin: 15px;
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
 `;
 
@@ -76,7 +75,6 @@ const ProductInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 15px;
   padding: 0px 10px;
   gap: 5px;
 `;
@@ -107,7 +105,7 @@ const RentalCost = styled.h5`
 
 const Box = styled.div`
   width: 1000px;
-  height: 100%;
+  height: 300px;
   //border: 1px solid black;
   display: flex;
   flex-direction: row;

@@ -32,7 +32,7 @@ function TopBar({ isLogin, setIsLogin }) {
       <ServiceName onClick={goToHomePage}>오늘대여</ServiceName>
       <Container>
         <MenuBox>
-          <MenuButton>메뉴 1</MenuButton>
+          <MenuButton>About</MenuButton>
           <MenuButton onClick={goToRentalPage}>대여하기</MenuButton>
           {isLogin && <MenuButton onClick={goToMyPage}>마이페이지</MenuButton>}
           <LoginButton onClick={goToLoginPage}>
