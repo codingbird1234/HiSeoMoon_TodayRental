@@ -35,7 +35,7 @@ export default My;
 
 const MyBox = styled.div`
   width: 1000px;
-  height: 1000px;
+  //height: 100%;
   //border: 1px solid black;
   border-radius: 100px;
   margin: 35px 0px;
@@ -89,7 +89,7 @@ const UserInfoText = styled.h5`
 
 const RentalBox = styled.div`
   width: 900px;
-  height: 400px;
+  height: 100%;
   //border: 1px solid black;
   border-radius: 50px;
   margin: 0px 0px;

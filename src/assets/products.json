@@ -14,7 +14,7 @@
     "rentalTermStandard": "하루",
     "remainProduct": 3,
     "address": "대구광역시 북구 대학로 80",
-    "rentalCost": 12000,
+    "rentalCost": 11900,
     "productImage": "/images/picnic_set.png"
   },
   "102": {
@@ -25,5 +25,68 @@
     "address": "대구광역시 북구 대학로 80",
     "rentalCost": 9900,
     "productImage": "/images/beam_projector.png"
+  },
+  "103": {
+    "id": 103,
+    "productName": "요리 세트",
+    "rentalTermStandard": "하루",
+    "remainProduct": 10,
+    "address": "대구광역시 북구 대학로 80",
+    "rentalCost": 19900,
+    "productImage": "/images/cooking_set.png"
+  },
+  "104": {
+    "id": 104,
+    "productName": "VR 세트",
+    "rentalTermStandard": "하루",
+    "remainProduct": 5,
+    "address": "대구광역시 북구 대학로 80",
+    "rentalCost": 19900,
+    "productImage": "/images/vr_set.png"
+  },
+  "105": {
+    "id": 105,
+    "productName": "닌텐도 스위치 세트",
+    "rentalTermStandard": "하루",
+    "remainProduct": 5,
+    "address": "대구광역시 북구 대학로 80",
+    "rentalCost": 9900,
+    "productImage": "/images/nintendo_switch.png"
+  },
+  "106": {
+    "id": 106,
+    "productName": "접이식 수레",
+    "rentalTermStandard": "하루",
+    "remainProduct": 20,
+    "address": "대구광역시 북구 대학로 80",
+    "rentalCost": 4900,
+    "productImage": "/images/cart.png"
+  },
+  "107": {
+    "id": 107,
+    "productName": "카트",
+    "rentalTermStandard": "하루",
+    "remainProduct": 10,
+    "address": "대구광역시 북구 대학로 80",
+    "rentalCost": 9900,
+    "productImage": "/images/shopping_cart.png"
+  },
+  "108": {
+    "id": 108,
+    "productName": "50m 작업선",
+    "rentalTermStandard": "하루",
+    "remainProduct": 10,
+    "address": "대구광역시 북구 대학로 80",
+    "rentalCost": 14900,
+    "productImage": "/images/cable.png"
+  },
+  "109": {
+    "id": 109,
+    "productName": "천막",
+    "rentalTermStandard": "하루",
+    "remainProduct": 10,
+    "address": "대구광역시 북구 대학로 80",
+    "rentalCost": 29900,
+    "productImage": "/images/tent.png"
   }
 }

@@ -2,24 +2,10 @@ import { styled } from 'styled-components';
 import Product from './Product';
 
 function ProductList() {
-  const products = [
-    {
-      productName: '만능 공구상자',
-      rentalTerm: '2021-09-01 ~ 2021-09-30',
-      address: '대구광역시 북구 대학로 80',
-      rentalCost: '총 30000원',
-      howMany: '3',
-      productImage: '/images/tools.png',
-    },
-    {
-      productName: '만능 공구상자',
-      rentalTerm: '2021-09-01 ~ 2021-09-30',
-      address: '대구광역시 북구 대학로 80',
-      rentalCost: '총 30000원',
-      howMany: '3',
-      productImage: '/images/tools.png',
-    },
-  ];
+  let products = [];
+  if (localStorage.getItem('rentalList')) {
+    products = JSON.parse(localStorage.getItem('rentalList'));
+  }
   return (
     <ProductsContainer>
       {products.map((product) => {
@@ -30,6 +16,7 @@ function ProductList() {
           </div>
         );
       })}
+      {products.length === 0 && <div>대여한 상품이 없습니다.</div>}
     </ProductsContainer>
   );
 }

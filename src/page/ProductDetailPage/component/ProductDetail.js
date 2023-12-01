@@ -1,9 +1,63 @@
 import { styled } from 'styled-components';
 import productList from '../../../assets/products.json';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function ProductDetail() {
+  const navigate = useNavigate();
   const { product } = useParams();
+  const [number, setNumber] = useState(0);
+  const [rentalDate, setRentalDate] = useState('');
+  const [returnDate, setReturnDate] = useState('');
+  const [term, setTerm] = useState(0);
+  const calculateRentalTerm = () => {
+    // 날짜 형식의 문자열을 Date 객체로 변환
+    const startDate = new Date(rentalDate);
+    const endDate = new Date(returnDate);
+
+    // 두 날짜의 차이 계산 (밀리초 단위)
+    const timeDifference = endDate - startDate;
+
+    // 밀리초를 일로 변환
+    const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+    setTerm(daysDifference);
+    return daysDifference;
+  };
+  useEffect(() => {
+    let thisTerm = calculateRentalTerm();
+    if (thisTerm < 0) {
+      alert('반납일은 대여일보다 빠를 수 없습니다.');
+    }
+  }, [rentalDate, returnDate]);
+
+  const addRental = () => {
+    if (term < 0) {
+      alert('반납일은 대여일보다 빠를 수 없습니다.');
+      return;
+    }
+    if (localStorage.getItem('rentalList') === null) {
+      localStorage.setItem('rentalList', JSON.stringify([]));
+    }
+
+    let rentalListString = localStorage.getItem('rentalList');
+    let rentalList = JSON.parse(rentalListString);
+    rentalList.push({
+      productName: `${productList[product].productName}`,
+      howMany: `${number}`,
+      rentalDate: `${rentalDate}`,
+      returnDate: `${returnDate}`,
+      address: `${productList[product].address}`,
+      rentalCostPerOne: `${productList[product].rentalCost}`,
+      rentalCostTotal: `${
+        productList[product].rentalCost * number * (term + 1)
+      }`,
+      productImage: `${productList[product].productImage}`,
+    });
+    localStorage.setItem('rentalList', JSON.stringify(rentalList));
+    alert('대여가 완료되었습니다.');
+    navigate('/mypage');
+  };
   return (
     <ProductDetailBox>
       <Container>
@@ -21,14 +75,35 @@ function ProductDetail() {
         <RentalBox>
           <Text>대여기간</Text>
           <RentalInfoBox>
-            <InputYear type="date"></InputYear>~
-            <InputYear type="date"></InputYear>
+            <InputYear
+              value={rentalDate}
+              onChange={(e) => setRentalDate(e.target.value)}
+              type="date"
+            ></InputYear>
+            ~
+            <InputYear
+              value={returnDate}
+              onChange={(e) => setReturnDate(e.target.value)}
+              type="date"
+            ></InputYear>
           </RentalInfoBox>
           <Text>대여 수량</Text>
-          <InputNumber type="number"></InputNumber>
-          <Text>총 대여비용 1000</Text>
+          <InputNumber
+            value={number}
+            onChange={(e) => {
+              if (e.target.value < 0) {
+                alert('수량은 음수가 될 수 없습니다.');
+                return;
+              }
+              setNumber(e.target.value);
+            }}
+            type="number"
+          ></InputNumber>
+          <Cost>
+            {productList[product].rentalCost * number * (term + 1) || 0}원
+          </Cost>
         </RentalBox>
-        <RentalButton>대여하기</RentalButton>
+        <RentalButton onClick={addRental}>대여하기</RentalButton>
       </Box>
     </ProductDetailBox>
   );
@@ -136,7 +211,7 @@ const RentalInfoBox = styled.div`
 `;
 
 const InputYear = styled.input`
-  width: 120px;
+  width: 150px;
   height: 30px;
   //border: 1px solid black;
   margin: 5px;
@@ -147,6 +222,12 @@ const InputYear = styled.input`
 `;
 const Text = styled.h5`
   font-size: 20px;
+  font-weight: 500;
+  margin: 5px;
+`;
+
+const Cost = styled.h5`
+  font-size: 40px;
   font-weight: 500;
   margin: 5px;
 `;

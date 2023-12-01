@@ -5,12 +5,13 @@ function Product({ product }) {
     <Container>
       <ProductImage src={product.productImage}></ProductImage>
       <ProductInfo>
-        <ProductName>
-          {product.productName}({product.howMany}개)
-        </ProductName>
-        <RentalTerm>{product.rentalTerm}</RentalTerm>
+        <ProductName>{product.productName}</ProductName>
+        <Number>대여 수량 : {product.howMany}개</Number>
+        <RentalTerm>
+          {product.rentalDate} ~ {product.returnDate}
+        </RentalTerm>
         <Address>{product.address}</Address>
-        <RentalCost>{product.rentalCost}</RentalCost>
+        <RentalCost>{product.rentalCostTotal}원</RentalCost>
       </ProductInfo>
     </Container>
   );
@@ -62,8 +63,14 @@ const RentalTerm = styled.h5`
   margin: 0px;
 `;
 
+const Number = styled.h5`
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0px;
+`;
+
 const RentalCost = styled.h5`
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 500;
   margin: 0px;
 `;

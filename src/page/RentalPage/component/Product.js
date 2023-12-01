@@ -44,7 +44,7 @@ const ProductImage = styled.img`
   height: 200px;
   border-radius: 10px;
   margin: 15px;
-  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
 `;
 
 const ProductInfo = styled.div`
