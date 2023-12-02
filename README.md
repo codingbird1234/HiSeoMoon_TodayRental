@@ -5,7 +5,7 @@
 ### 3. 다음 코드를 입력하여 해당 프로젝트 폴더로 이동합니다.
     cd HiSeoMoon_TodayRental
 만약, 프로젝트 폴더 이름을 바꿨다면 'HiSeoMoon_TodayRental' 대신 그 프로젝트 폴더 이름을 넣습니다.
-### 4. 다음 코드를 입력하여 package.json 파일에 포함된 의존성 패키지들이 한번에 설치합니다.
+### 4. 다음 코드를 입력하여 `package.json` 파일에 포함된 의존성 패키지들이 한번에 설치합니다.
     npm install
 ### 5. 다음 코드를 입력하면 프로젝트가 실행됩니다.
     npm start
