@@ -88,5 +88,14 @@
     "address": "대구광역시 북구 대학로 80",
     "rentalCost": 29900,
     "productImage": "/images/tent.png"
+  },
+  "110": {
+    "id": 110,
+    "productName": "크리스마스 LED",
+    "rentalTermStandard": "하루",
+    "remainProduct": 30,
+    "address": "대구광역시 북구 대학로 80",
+    "rentalCost": 9900,
+    "productImage": "/images/led.png"
   }
 }

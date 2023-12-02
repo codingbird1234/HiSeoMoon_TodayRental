@@ -15,13 +15,13 @@ export default Rental;
 
 const RentalBox = styled.div`
   //width: 1000px;
-  height: 1000px;
+  height: 100%;
   //border: 1px solid black;
   display: flex;
   flex-direction: column;
   //justify-content: center;
   align-items: center;
-  //margin: 50px 0px;
+  margin-bottom: 100px;
 `;
 
 const Title = styled.h2`
